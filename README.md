@@ -1,65 +1,36 @@
-# HEPExampleProject.jl
+# DistributionsHEP.jl
 
-`HEPExampleProject.jl` is a demonstration package for showcasing how to develop software
-in the context of high-energy physics (HEP) using the Julia programming language. This project
-serves as a template for researchers, developers, and students interested in adopting Julia
-for HEP-specific workflows.
+`DistributionsHEP.jl` is a package extending the [`Distributions.jl`](https://github.com/JuliaStats/Distributions.jl) package with HEP specific distributions. 
+Whereas the package `Distributions.jl` already provides a large collection of common distributions out of the box, we use in HEP special distributions that make sense to be grouped in tis package. 
 
-## Key Features
+Generally, you don't have to implement every API method listed in the documentation. We just need to implement a small number of internal methods that will be used by `Distributions.jl` to provide all the user-end API methods.
 
-- **HEP-Focused Design**: Structures common to high-energy physics are implemented with a focus on performance and flexibility.
-- **Modular Architecture**: Designed to be easily extensible for new use cases and HEP-related calculations.
-- **Integration with JuliaHEP**: Part of the [JuliaHEP](https://github.com/JuliaHEP) ecosystem, which aims to facilitate the use of Julia in high-energy physics research and analysis.
+## Implemented Distributions
+
+- **ChebyshevDist**: Chebychev polynomial distribution
+- **ArgusBGDist**: Distribution describing the ARGUS background
 
 ## Installation
 
-This package is not registered (and most probably will never be).
-
-To install `HEPExampleProject.jl`, use Julia's built-in package manager. In the Julia REPL, type:
+To install `DistributionsHEP.jl`, use Julia's built-in package manager. In the Julia REPL, type:
 
 ```julia
 julia> using Pkg
-julia> Pkg.add("https://github.com/JuliaHEP/HEPExampleProject.jl")
+julia> Pkg.add("DistributionsHEP")
 ```
 
 Alternatively, you can enter the Pkg mode by pressing `]` in the REPL, then type:
 
 ```julia
-pkg> add https://github.com/JuliaHEP/HEPExampleProject.jl
+pkg> add DistributionsHEP
 ```
 
 ## Usage
 
-Once installed, you can begin using `HEPExampleProject.jl` by importing the package:
+Once installed, you can begin using `DistributionsHEP.jl` by importing the package:
 
 ```julia
-using HEPExampleProject
-```
-
-### Example
-
-The following example demonstrates a simple use of the package:
-
-```julia
-using HEPExampleProject
-using Random
-
-# define random number generator for reproducability
-RNG = Xoshiro(137)
-
-# Define some input parameters for the HEP process
-incoming_electron_energy = 1000.0
-
-# generate 1M events
-event_list = generate_events_cpu(RNG,incoming_electron_energy,1_000_000)
-```
-
-If you separately install the package `StatsPlots` (`pkg> add StatsPlots`), you can plot
-the generated events:
-
-```Julia
-using StatsPlots
-plot_muon_cos_theta(event_list)
+using DistributionsHEP
 ```
 
 ## Contributing
@@ -80,5 +51,5 @@ all contributors and users who support the growth of this project.
 
 ## License
 
-`HEPExampleProject.jl` is licensed under the MIT License.
-See the [LICENSE](https://github.com/JuliaHEP/HEPExampleProject.jl/blob/main/LICENSE) file for more details.
+`DistributionsHEP.jl` is licensed under the MIT License.
+See the [LICENSE](https://github.com/JuliaHEP/DistributionsHEP.jl/blob/main/LICENSE) file for more details.
