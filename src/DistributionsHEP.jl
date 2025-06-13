@@ -1,9 +1,10 @@
-module HEPExampleProject
+module DistributionsHEP
 
 using Random
 using Distributions
+import Distributions: @check_args
 
-include("src/chebychev.jl")
-include("src/argusBG.jl")
+include("chebychev.jl")
+include("argusBG.jl")
 
 end
