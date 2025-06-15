@@ -1,4 +1,3 @@
-using DistributionsHEP
 using Test
 
-@test true
+include("test-crystalball.jl")
