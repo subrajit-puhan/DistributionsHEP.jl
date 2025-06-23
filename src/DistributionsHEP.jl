@@ -1,11 +1,16 @@
 module DistributionsHEP
 
-using Random
 using Distributions
 using SpecialFunctions
+using Random
 
-import Distributions: pdf, cdf, @check_args
-export pdf, cdf
+import Distributions: @check_args
+import Distributions.Statistics: mean, std, var, quantile
+import Distributions.StatsBase: kurtosis, skewness
+import Base: maximum, minimum, rand
+
+export pdf, cdf, quantile, support
+export mean, std, var, skewness, kurtosis
 
 export Chebyshev
 include("chebychev.jl")

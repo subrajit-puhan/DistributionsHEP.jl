@@ -1,7 +1,6 @@
 using SpecialFunctions
 using Polynomials
 
-#---Extended Distributions.jl with a Chebyshev polynomial distribution------------------------------
 struct Chebyshev <: ContinuousUnivariateDistribution
     polynomial::ChebyshevT{Float64,:x}
     integral::Float64
@@ -13,6 +12,9 @@ struct Chebyshev <: ContinuousUnivariateDistribution
         new(polynomial, (integral(1.0) - integral(-1.0)), a, b)
     end
 end
+
+Distributions.maximum(d::Chebyshev) = d.b
+Distributions.minimum(d::Chebyshev) = d.a
 
 function Distributions.pdf(d::Chebyshev, x::Real)
     x′ = (2x - d.a - d.b) / (d.b - d.a)
@@ -37,3 +39,4 @@ function Base.rand(rng::AbstractRNG, d::Chebyshev)
     end
     return (x * (d.b - d.a) + d.a + d.b) / 2
 end
+
