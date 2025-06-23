@@ -7,8 +7,12 @@ Generally, you don't have to implement every API method listed in the documentat
 
 ## Implemented Distributions
 
-- **Chebyshev**: Chebyshev polynomial distribution
-- **ArgusBG**: Distribution describing the ARGUS background
+- **ChebyshevDist**: Chebychev polynomial distribution
+- **ArgusBGDist**: Distribution describing the ARGUS background
+- **CrystalBall**: One-sided Crystal Ball distribution with power-law tail
+- **DoubleCrystalBall**: Two-sided Crystal Ball distribution with power-law tails on both sides of a Gaussian core
+
+Mathematical derivations for both the one-sided and two-sided Crystal Ball distributions are found in `docs/CrystalBallMath.md`.
 
 ## Installation
 

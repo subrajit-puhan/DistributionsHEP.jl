@@ -22,4 +22,7 @@ include("argusBG.jl")
 export CrystalBall
 include("crystalball.jl")
 
+export DoubleCrystalBall
+include("double-sided-crystal-ball.jl")
+
 end

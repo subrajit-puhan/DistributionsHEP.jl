@@ -143,3 +143,6 @@ function Distributions.quantile(d::CrystalBall{T}, p::Real) where {T<:Real}
 
     return d.μ + d.σ * x̂
 end
+
+Distributions.maximum(d::CrystalBall{T}) where {T<:Real} = T(Inf)
+Distributions.minimum(d::CrystalBall{T}) where {T<:Real} = T(-Inf)
